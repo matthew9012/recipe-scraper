@@ -1,7 +1,6 @@
 from ._abstract import AbstractScraper
 from ._utils import get_minutes, normalize_string
 
-
 class Epicurious(AbstractScraper):
 
     @classmethod
@@ -12,7 +11,7 @@ class Epicurious(AbstractScraper):
         return self.soup.find('h1', {'itemprop': 'name'}).get_text()
 
     def total_time(self):
-        return get_minutes(self.soup.findAll('p', {'class': 'summary_data'})[-1])
+        return 	self.soup.find('dd', {'class': 'total-time'}).get_text()
 
     def ingredients(self):
         ingredients_html = self.soup.findAll('li', {'itemprop': "ingredients"})
@@ -23,9 +22,14 @@ class Epicurious(AbstractScraper):
         ]
 
     def instructions(self):
-        instructions_html = self.soup.find('div', {'id': 'preparation'}).find_all('p')
+        things =  self.soup.find('div', {'itemprop': 'recipeInstructions'}).findAll(attrs={'class': "preparation-step"})
 
-        return '\n'.join([
-            normalize_string(instruction.get_text())
-            for instruction in instructions_html
-        ])
+        results = []
+        for x in things:
+            results.append(x.get_text().strip())
+        
+        return results
+
+    def image(self):
+        image_html = self.soup.find('meta', {'itemprop': 'image'})['content']
+        return image_html

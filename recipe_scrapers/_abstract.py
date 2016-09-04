@@ -35,3 +35,6 @@ class AbstractScraper():
 
     def instructions(self):
         raise NotImplementedError("This should be implemented.")
+
+    def image(self):
+        raise NotImplementedError("This should be implemented")

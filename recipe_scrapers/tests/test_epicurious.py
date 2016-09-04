@@ -60,3 +60,7 @@ class TestEpicurious(unittest.TestCase):
             'Preheat oven to 425°F. Heat oil in a large ovenproof skillet over medium-high heat. Add onion, garlic, and jalapeños; cook, stirring occasionally, until onion is soft, about 8 minutes. Add chickpeas, paprika, and cumin and cook for 2 minutes longer.\nAdd crushed tomatoes and their juices. Bring to a boil, reduce heat to medium-low, and simmer, stirring occasionally, until sauce thickens slightly, about 15 minutes. Season to taste with salt and pepper. Sprinkle feta evenly over sauce. Crack eggs one at a time and place over sauce, spacing evenly apart. Transfer skillet to oven and bake until whites are just set but yolks are still runny, 5-8 minutes. Garnish with parsley and cilantro. Serve with pita for dipping.\nPer serving: 358 calories, 22 g fat, 22 g carbohydrates\nNutritional analysis provided by Bon Appétit',
             self.harvester_class.instructions()
         )
+
+    def test_image(self):
+        return self.assertEqual("http://assets.epicurious.com/photos/5609a5a06a59cdb91b5ff550/master/pass/353654_hires.jpg")
+        self.harvester_class.image()
