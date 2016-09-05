@@ -2,7 +2,7 @@
 
 from recipe_scrapers import scrap_me
 
-s = scrap_me("http://allrecipes.com/recipe/236901/southern-bbq-chicken/")
+s = scrap_me("http://allrecipes.com/recipe/221093/good-frickin-paprika-chicken/")
 
 try:
     print("~~~~~~~~~~~TITLE~~~~~~~~~~~~~")

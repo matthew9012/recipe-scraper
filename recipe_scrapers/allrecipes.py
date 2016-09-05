@@ -12,7 +12,7 @@ class AllRecipes(AbstractScraper):
         return self.soup.find('h1').get_text()
 
     def total_time(self):
-        return get_minutes(self.soup.find('span', {'class': 'ready-in-time'}))
+        return self.soup.find('span', {'class': 'ready-in-time'}).get_text()
 
     def ingredients(self):
         ingredients_html = self.soup.findAll('li', {'class': "checkList__line"})
