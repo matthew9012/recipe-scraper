@@ -26,7 +26,13 @@ class AllRecipes(AbstractScraper):
     def instructions(self):
         instructions_html = self.soup.findAll('span', {'class': 'recipe-directions__list--item'})
 
-        return '\n'.join([
-            normalize_string(instruction.get_text())
-            for instruction in instructions_html
-        ])
+
+        results = []
+        for instruction in instructions_html:
+            results.append(instruction.get_text().strip())
+
+        return results
+         
+    def image(self):
+        image_html = self.soup.find('img', {'class': "rec-photo"})
+        return image_html['src']
