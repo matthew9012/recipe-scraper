@@ -33,7 +33,7 @@ site - please fire an issue asap.
 
 If you are programmer PRs with fixes are warmly welcomed and acknowledged with a virtual beer
  :beer:.
-
+PR are welcome
 
 ### Scrapers available for:
 
